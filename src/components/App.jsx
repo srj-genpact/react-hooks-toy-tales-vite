@@ -23,6 +23,12 @@ function App() {
     setToys((prevToys) => prevToys.filter((toy) => toy.id !== toyId));
   }
 
+  function handleLikeToy(updatedToy) {
+    setToys((prevToys) =>
+      prevToys.map((toy) => (toy.id === updatedToy.id ? updatedToy : toy))
+    );
+  }
+
   function handleClick() {
     setShowForm((showForm) => !showForm);
   }
@@ -34,7 +40,11 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer toys={toys} onDeleteToy={handleDeleteToy} />
+      <ToyContainer
+        toys={toys}
+        onDeleteToy={handleDeleteToy}
+        onLikeToy={handleLikeToy}
+      />
     </>
   );
 }
