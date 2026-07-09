@@ -27,3 +27,10 @@ yarn-error.log*
 
 # Ignore ESLint files
 .eslintcache
+
+# Local PDF and extraction scripts/artifacts
+React2 Assignment ToyTales.pdf
+extract_pdf.py
+extract_pymupdf.py
+extracted_images/
+instructions.txt
