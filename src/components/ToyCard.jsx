@@ -3,6 +3,7 @@ import React from "react";
 function ToyCard({ toy, onDeleteToy, onLikeToy }) {
   const { id, name, image, likes } = toy;
 
+  // Sends DELETE request to remove the toy from db, then calls onDeleteToy callback to sync UI state
   function handleDelete() {
     fetch(`http://localhost:3001/toys/${id}`, {
       method: "DELETE"
@@ -17,6 +18,7 @@ function ToyCard({ toy, onDeleteToy, onLikeToy }) {
       .catch((err) => console.error("Error deleting toy:", err));
   }
 
+  // Sends PATCH request to increment toy likes count, then calls onLikeToy callback to sync UI state
   function handleLike() {
     const updatedLikes = { likes: likes + 1 };
 

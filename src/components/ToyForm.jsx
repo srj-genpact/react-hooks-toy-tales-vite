@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
 function ToyForm({ onAddToy }) {
+  // Controlled form inputs state
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
 
+  // Submit handler to send POST request to the backend for creating a new toy
   function handleSubmit(e) {
     e.preventDefault();
     const newToy = {
@@ -21,6 +23,7 @@ function ToyForm({ onAddToy }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        // Update parent state with the new toy object and reset input fields
         onAddToy(data);
         setName("");
         setImage("");
