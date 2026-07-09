@@ -15,6 +15,10 @@ function App() {
       .catch((err) => console.error("Error fetching toys:", err));
   }, []);
 
+  function handleAddToy(newToy) {
+    setToys((prevToys) => [...prevToys, newToy]);
+  }
+
   function handleClick() {
     setShowForm((showForm) => !showForm);
   }
@@ -22,7 +26,7 @@ function App() {
   return (
     <>
       <Header />
-      {showForm ? <ToyForm /> : null}
+      {showForm ? <ToyForm onAddToy={handleAddToy} /> : null}
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
